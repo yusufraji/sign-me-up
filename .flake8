@@ -1,0 +1,3 @@
+[flake8]
+per-file-ignores = 
+    sign_me_up/settings.py:E501
