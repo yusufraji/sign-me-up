@@ -17,3 +17,10 @@ repos:
   rev: 4.0.1
   hooks:
   - id: flake8
+- repo: local
+  hooks:
+    - id: update-requirements
+      name: update-requirements
+      language: system
+      entry: "python -m pip freeze > requirements-dev.txt"
+      pass_filenames: false
