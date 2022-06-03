@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- --------------------------- Bootstrap 5 CSS --------------------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- ----------------------------- FontAwesome ----------------------------- -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ------------------------------- Favicon ------------------------------- -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.png'%}"/>
+    <!-- -------------------------------- Logo --------------------------------- -->
+    <!-- <link href={% static "img/logo.ico" %} rel="shortcut icon"> -->
+    <!-- ----------------------------- Static CSS ------------------------------ -->
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <title>{% block title %}
+        Home
+        {% endblock title %}</title>
+</head>
+
+<body class="bg-light">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+                <!-- FontAwesome & Title -->
+                <div class="col-sm">
+                    <a class="navbar-brand flex-grow-1" style="text-align:
+                    center; color: darkolivegreen; margin-left: 25px;">
+                        <img src={% static "img/logo.png" %}></img>&nbsp;&nbsp; Sign me up
+                    </a>
+                </div>
+                <div>
+                    {% block nav-btn %}
+                    <a href="{% url 'read_data' %}" id="btn-nav" class="btn btn-outline-dark">Students</a>
+                    {% endblock nav-btn %}
+                </div>
+            </nav>
+        </header>
+        <!-- Block content (ROOT) -->
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start" id="footer" style="color:gray;">
+        <div class="text-center p-3" style="background-color: aliceblue;">
+            &copy; {% now "Y" %} Copyright:
+            <a url="https://github.com/yusufraji" class="text-dark"
+            style="text-decoration: none;">
+                <span class="text-success">github.com/yusufraji</span>
+            </a>
+        </div>
+    </footer>
+    <!-- bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

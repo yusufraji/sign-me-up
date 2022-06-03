@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from registry import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", views.data_form, name="create_data"),
+    path("data/", views.read_data, name="read_data"),
+    path("<int:id>", views.data_form, name="update_data"),
+    path(
+        "delete_data/<str:student_id>",
+        views.delete_data,
+        name="delete_data",
+    ),
 ]
